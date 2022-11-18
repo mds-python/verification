@@ -20,7 +20,7 @@ The sum of all the digits in the third row is 70, which means the card number is
 
 ### Your task (`card.py`)
 
-Write a function `check_card(number)` that implements the following algorithm and returns `True` of `False` indicating if the card number is correct.
+Write a function `check_card(number)` that implements the above algorithm and returns `True` of `False` indicating if the card number is correct.
 
 Use it to verify your credit card number. You may also check the correctness of the following numbers: `79927398710`, `79927398711`, `79927398712`, `79927398713`, `79927398714`, `79927398715`, `79927398716`, `79927398717`, `79927398718`, `79927398719`.
 
