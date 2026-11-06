@@ -37,7 +37,8 @@ class TestPESEL(unittest.TestCase):
         infilename = os.path.join(directory, 'data.txt')
         with open(infilename, 'w') as infile:
             infile.write("90090515836\n87832165181\n01261031813\n01261051813\n123456789\n")
-        pesel.check_pesel_file(infilename)
+        filename = pesel.check_pesel_file(infilename)
+        self.assertEqual(os.path.basename(filename), 'data.out')
         try:
             with open(os.path.join(directory, 'data.out')) as outfile:
                 answer = [line.rstrip() for line in outfile.readlines()]
@@ -46,6 +47,12 @@ class TestPESEL(unittest.TestCase):
                 self.assertRegex(answer[i], correct[i])
         except FileNotFoundError:
             self.fail("File not found")
+
+    def test_pesels_in_file_not_found(self):
+        directory = os.path.dirname(os.path.abspath(__file__))
+        infilename = os.path.join(directory, 'nonexistentblablabla.txt')
+        filename = pesel.check_pesel_file(infilename)
+        self.assertIsNone(filename)
 
 
 class TestCard(unittest.TestCase):

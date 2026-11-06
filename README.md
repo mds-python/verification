@@ -148,14 +148,16 @@ For example, a person born on *December 24, 2002* would have a PESEL number star
    with the extension changed to `.out`, containing each line of the person's date of birth, or the sign "-"
    in the case of an incorrect PESEL number.
 
+   The function should return the name of the output file. In case the input file does not exist, the function should return `None`.
+
    For example, calling `check_pesel_file("pesels.txt")` will create the file `pesels.out`. If the file `pesels.txt` contains
 
         90090515836
         87832165581
 
-   This `pesels.out` will be as follows:
+   then the function will return the filen `pesels.out` and create the file with the following content:
 
         September 5, 1990
         -
 
-   It is worth considering how to use the function from the first point.
+   If, we call `check_pesel_file("nonexistent.txt")`, the function will return `None` and no file will be created.

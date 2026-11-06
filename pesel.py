@@ -54,23 +54,24 @@ identified by this number.
    - None if PESEL is incorrect
    - date of birth in the format `September 5, 1971` if the PESEL number is correct
 
-2. Write the function `check_pesel_file`, which takes the file name as an argument and reads PESEL numbers
-   from this file (one on each line). The function must create a file with the same name as the original file name
+2. Write the function `check_pesel_file`, which takes the file name as an argument and reads PESEL numbers from this file
+   (one on each line). The function must create a file with the same name as the original file name
    with the extension changed to `.out`, containing each line of the person's date of birth, or the sign "-"
    in the case of an incorrect PESEL number.
 
-   For example, calling `check_pesel_file("pesels.txt")` will create the file `pesels.out`. If the file
-   `pesels.txt` contains
+   The function should return the name of the output file. In case the input file does not exist, the function should return `None`.
+
+   For example, calling `check_pesel_file("pesels.txt")` will create the file `pesels.out`. If the file `pesels.txt` contains
 
         90090515836
         87832165581
 
-   This `pesels.out` will be as follows:
+   then the function will return the filen `pesels.out` and create the file with the following content:
 
         September 5, 1990
         -
 
-   It is worth considering how to use the function from the first point.
+   If, we call `check_pesel_file("nonexistent.txt")`, the function will return `None` and no file will be created.
 """
 
 
